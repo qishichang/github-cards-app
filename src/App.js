@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import Card from './Card';
+import { CardList } from './CardList';
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
         <div className='header'>
           {this.props.title}
         </div>
-        <Card />
+        <CardList />
       </div>
     );
   }
