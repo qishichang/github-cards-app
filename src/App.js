@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.scss';
+import Card from './Card';
 
-function App({title}) {
-  return (
-    <div className='header'>
-      {title}
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <div className='header'>
+          {this.props.title}
+        </div>
+        <Card />
+      </div>
+    );
+  }
 }
 
 export default App;
