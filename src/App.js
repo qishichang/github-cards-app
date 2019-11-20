@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { CardList } from './CardList';
-import { testData } from './TestData'
 import Form from './Form';
 
 class App extends Component {
   state = {
-    profiles: testData
+    profiles: []
+  }
+
+  addNewProfile = (profileData) => {
+    this.setState(prevState => 
+      ({ profiles: [ ...prevState.profiles, profileData]}));
   }
   render() {
     return (
@@ -14,8 +18,10 @@ class App extends Component {
         <div className='header'>
           {this.props.title}
         </div>
-        <Form />
-        <CardList profiles={this.state.profiles}/>
+        <Form 
+          onSubmit={this.addNewProfile} />
+        <CardList 
+          profiles={this.state.profiles} />
       </div>
     );
   }
