@@ -1,30 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import { CardList } from './CardList';
+import CardList from './CardList';
 import Form from './Form';
 
-class App extends Component {
-  state = {
-    profiles: []
+function App(props) {
+  const [profiles, setProfiles] = useState([]);
+ 
+  const addNewProfile = (profileData) => {
+    setProfiles([...profiles, profileData]);
   }
 
-  addNewProfile = (profileData) => {
-    this.setState(prevState => 
-      ({ profiles: [ ...prevState.profiles, profileData]}));
-  }
-  render() {
-    return (
-      <div>
-        <div className='header'>
-          {this.props.title}
-        </div>
-        <Form 
-          onSubmit={this.addNewProfile} />
-        <CardList 
-          profiles={this.state.profiles} />
+  return (
+    <div>
+      <div className='header'>
+        {props.title}
       </div>
-    );
-  }
+      <Form 
+        onSubmit={addNewProfile} />
+      <CardList 
+        profiles={profiles} />
+    </div>
+  );
+  
 }
 
 export default App;

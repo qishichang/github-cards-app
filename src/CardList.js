@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-export const CardList = (props) => {
+function CardList(props) {
   return (
     <div>
       {props.profiles.map((profile) => (
@@ -9,4 +9,6 @@ export const CardList = (props) => {
       ))}
     </div>
   );
-};
+}
+
+export default CardList;
