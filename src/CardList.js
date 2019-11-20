@@ -1,11 +1,10 @@
 import React from "react";
 import Card from "./Card";
-import { testData } from "./TestData";
 
-export const CardList = () => {
+export const CardList = (props) => {
   return (
     <div>
-      {testData.map((profile, i) => (
+      {props.profiles.map((profile, i) => (
         <Card key={i} {...profile} />
       ))}
     </div>
